@@ -169,7 +169,9 @@ public class DB {
         builder.getEnvironment().put(configuration.getOSLibraryEnvironmentVarName(), libDir.getAbsolutePath());
         builder.addArgument("--no-defaults"); // *** THIS MUST COME FIRST ***
         builder.addArgument("--console");
-        builder.addArgument("--skip-grant-tables");
+        // Comment out --skip-grant-tables until this commit is in a formal build: 
+        // https://github.com/vorburger/MariaDB4j/pull/83/commits/7e1988d4
+        // builder.addArgument("--skip-grant-tables");
         builder.addArgument("--max_allowed_packet=64M");
         builder.addFileArgument("--basedir", baseDir).setWorkingDirectory(baseDir);
         builder.addFileArgument("--datadir", dataDir);
